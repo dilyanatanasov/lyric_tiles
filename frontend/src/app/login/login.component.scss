@@ -21,13 +21,15 @@
 
   form {
     background-color: #7a7ace;
-    padding: 3em;
+    padding: 3em 5em;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
 
     .form-group {
-      margin-bottom: 2em;
+      margin-bottom: 1em;
+      display: flex;
+      flex-direction: column;
 
       label {
         color: whitesmoke;
@@ -37,7 +39,7 @@
         background-color: whitesmoke;
         border: none;
         border-radius: 5px;
-        margin-left: 1em;
+        width: 90%;
         padding: 0.5em;
       }
     }
@@ -51,6 +53,7 @@
       transition: background-color ease-in 1ms;
 
       &:hover {
+        cursor: pointer;
         background-color: #6565b2;
         color: whitesmoke;
         transition: background-color ease-in 1ms;
