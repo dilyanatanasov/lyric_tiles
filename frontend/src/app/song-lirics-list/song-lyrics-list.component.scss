@@ -1,0 +1,119 @@
+.piano-container {
+  .search-bar {
+    color: whitesmoke;
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #393838;
+
+    img {
+      width: 10em;
+      margin-right: 1em;
+      cursor: pointer;
+    }
+
+    input {
+      border: 1px solid #393838;
+      border-radius: 5px;
+      width: 15%;
+      min-width: 250px;
+      height: 2em;
+      padding-left: 5px;
+      margin-right: 0.5em;
+    }
+
+    button {
+      border: none;
+      border-radius: 5px;
+      background-color: #7a7ace;
+      color: whitesmoke;
+      height: 2em;
+      width: 5%;
+      min-width: 100px;
+      cursor: pointer;
+      transition: background-color ease-in 200ms;
+
+      &:hover {
+        background-color: #6565b2;
+        transition: background-color ease-in 200ms;
+      }
+    }
+
+    p {
+      color: #7a7ace;
+      margin: 0.5em 0 0.5em 1em;
+      padding: 0.5em;
+      transition: color ease-in 200ms;
+      transition: background-color ease-in 200ms;
+      cursor: pointer;
+
+      &:hover {
+        border-radius: 5px;
+        color: whitesmoke;
+        background-color: #6565b2;
+        transition: color ease-in 200ms;
+        transition: background-color ease-in 200ms;
+      }
+    }
+
+    .new-song {
+      margin-left: auto;
+    }
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: white;
+      border-left: 1px solid #393838;
+      border-right: 1px solid #393838;
+      border-bottom: 1px solid #393838;
+
+      &:hover {
+        background-color: whitesmoke;
+        transition: background-color ease-in 200ms;
+      }
+
+      a {
+        width: 100%;
+        text-decoration: none;
+
+        div {
+          width: 100%;
+          height: 5em;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          p {
+            margin: 0;
+            padding: 5px;
+            background-color: #222;
+            color: whitesmoke;
+            min-width: 30%;
+            border-radius: 0 5px 5px 0;
+            transition: background-color ease-in 200ms;
+            text-decoration: none;
+          }
+        }
+      }
+
+      p {
+        color: #603b11;
+        padding: 1em 1em 0;
+        transition: color ease-in 200ms;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+          transition: color ease-in 200ms;
+        }
+      }
+    }
+  }
+}

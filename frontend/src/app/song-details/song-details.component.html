@@ -1,0 +1,50 @@
+<!--<mat-card *ngIf="song && form">-->
+<!--  <button mat-raised-button color="primary" routerLink="">Back</button>-->
+<!--  <form [formGroup]="form">-->
+<!--    <mat-form-field appearance="fill">-->
+<!--      <mat-label>Input</mat-label>-->
+<!--      <input matInput formControlName="title">-->
+<!--    </mat-form-field>-->
+<!--    <mat-form-field appearance="fill">-->
+<!--      <mat-label>Lyrics</mat-label>-->
+<!--      <textarea matInput formControlName="lyrics"></textarea>-->
+<!--    </mat-form-field>-->
+<!--  </form>-->
+<!--</mat-card>-->
+
+
+<div *ngIf="song && form">
+  <a routerLink="">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </a>
+  <form [formGroup]="form">
+    <div class="preview-lyrics-section">
+      <div class="preview-section">
+        <label for="title">Title</label>
+        <input id="title" formControlName="title">
+        <label>Song</label>
+        <iframe [src]="url" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <div class="lyrics-section">
+        <div class="lyrics-options">
+          <label for="lyrics">Lyrics</label>
+          <p (click)="addSection(categoryType.MAIN)">Add MAIN</p>
+          <p (click)="addSection(categoryType.PREMAIN)">Add PREMAIN</p>
+          <p (click)="addSection(categoryType.SECTION)">Add SECTION</p>
+        </div>
+        <div class="lyrics" id="lyrics" *ngIf="parts.length">
+          <div class="lyric-row" *ngFor="let part of parts; let i = index">
+            <textarea [ngClass]="songService.getCategoryClass(part.category)"
+                      [value]="part.content" formControlName="lyric-{{i + 1}}"></textarea>
+            <mat-icon (click)="removeSection(i)">close</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="updateSong()">Update</button>
+  </form>
+</div>
+
+

@@ -1,0 +1,182 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #7a7ace;
+  border-radius: 10px;
+}
+
+div {
+  height: 100%;
+
+  .management-actions {
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+      width: 10em;
+      margin-right: 1em;
+      cursor: pointer;
+    }
+
+    a {
+      margin-left: auto;
+      padding: 1em 0;
+
+      .mat-icon {
+        font-size: 30px;
+      }
+    }
+  }
+
+  form {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+
+    .preview-lyrics-section {
+      display: flex;
+      flex-direction: row;
+
+      label {
+        font-size: 20px;
+        padding: 0 1em 0 0;
+
+        &[for=title] {
+          padding-top: 1em !important;
+        }
+      }
+
+      input {
+        margin: 1em 1em 1em 0;
+        padding: 0 1em;
+        border-radius: 5px;
+        height: 5%;
+      }
+
+      .preview-section {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+        iframe {
+          width: 97%;
+          padding: 1em 1em 1em 0;
+          height: 20em;
+        }
+      }
+
+      .lyrics-section {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+        .lyrics-options {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          height: 3em;
+
+          label {
+            padding: 1em;
+          }
+
+          p {
+            margin: 0.5em;
+            padding: 0.5em;
+            cursor: pointer;
+            border-radius: 5px;
+
+            &:nth-child(2) {
+              margin-left: auto;
+              color: #e77f7f;
+            }
+
+            &:nth-child(3) {
+              color: #86c986;
+            }
+
+            &:nth-child(4) {
+              color: #7a7ace;
+            }
+
+            &:nth-child(2):hover {
+              margin-left: auto;
+              color: whitesmoke;
+              background-color: #e77f7f;
+            }
+
+            &:nth-child(3):hover {
+              color: whitesmoke;
+              background-color: #86c986;
+            }
+
+            &:nth-child(4):hover {
+              color: whitesmoke;
+              background-color: #7a7ace;
+            }
+          }
+        }
+
+        .lyrics {
+          display: flex;
+          flex-direction: column;
+          height: 70vh;
+          overflow-y: auto;
+
+          .lyric-row {
+            display: flex;
+            flex-direction: row;
+            height: 8em;
+
+            textarea {
+              resize: none;
+              padding: 0.5em;
+              margin: 0.2em 0.5em 0.5em;
+              border: 1px solid lightgray;
+              border-radius: 5px;
+              width: 90%;
+              height: 110px;
+            }
+
+            .mat-icon {
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+            }
+
+            .main {
+              border: 2px solid #e77f7f;
+            }
+
+            .premain {
+              border: 2px solid #86c986;
+            }
+
+            .section {
+              border: 2px solid #7a7ace;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      height: 10%;
+      cursor: pointer;
+    }
+  }
+}

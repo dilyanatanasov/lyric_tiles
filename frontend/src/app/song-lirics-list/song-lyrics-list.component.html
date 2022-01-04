@@ -1,0 +1,30 @@
+<!--<div class="container" fxLayout="row wrap" fxLayoutAlign="space-around">-->
+<!--  <mat-list *ngFor="let song of songList">-->
+<!--    <mat-list-item>-->
+<!--      <mat-card routerLink="/songs/{{ song._id }}">-->
+<!--        <mat-card-title>{{ song.title }}</mat-card-title>-->
+<!--        <mat-card-content>{{ song.title }}</mat-card-content>-->
+<!--      </mat-card>-->
+<!--    </mat-list-item>-->
+<!--  </mat-list>-->
+<!--</div>-->
+
+<div class="piano-container">
+  <div class="search-bar" [formGroup]="formGroup">
+    <img routerLink="" src="assets/lyric-tiles.png">
+    <input placeholder="Search..." formControlName="title" (keyup)="handleKeyUp($event)" >
+    <button (click)="search()">Search</button>
+    <p class="new-song" routerLink="/songs/c">New Song</p>
+    <p class="logout" (click)="logout()">Logout</p>
+  </div>
+  <ul *ngFor="let song of songList">
+    <li>
+      <a routerLink="/songs/u/{{ song._id }}">
+        <div>
+          <p>{{ song.title }}</p>
+        </div>
+      </a>
+      <p (click)="deleteSong(song._id)"><mat-icon>close</mat-icon></p>
+    </li>
+  </ul>
+</div>

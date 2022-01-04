@@ -1,0 +1,13 @@
+{
+  "name": "dna-records",
+  "version": "1.0.0",
+  "scripts": {
+    "server": "cd backend && ts-node app.ts",
+    "frontend": "cd frontend && ng serve",
+    "current": "ls -l",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^6.5.1"
+  }
+}

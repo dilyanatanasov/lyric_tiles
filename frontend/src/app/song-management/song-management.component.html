@@ -1,0 +1,47 @@
+<div *ngIf="song && form">
+  <div class="management-actions">
+    <img routerLink="" src="assets/lyric-tiles.png">
+    <a routerLink="">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </a>
+  </div>
+  <form [formGroup]="form">
+    <div class="preview-lyrics-section">
+      <div class="preview-section">
+        <label for="title">Title</label>
+        <input id="title" formControlName="title">
+        <label for="theme">Theme</label>
+        <input id="theme" formControlName="theme">
+
+        <label *ngIf="type === songRouteType.UPDATE" >Song</label>
+        <iframe *ngIf="type === songRouteType.UPDATE" [src]="url" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+
+        <label *ngIf="type === songRouteType.CREATE" for="songUrl">Song</label>
+        <input *ngIf="type === songRouteType.CREATE" id="songUrl" formControlName="songUrl">
+        <iframe *ngIf="type === songRouteType.CREATE && url" [src]="url" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <div class="lyrics-section">
+        <div class="lyrics-options">
+          <label for="lyrics">Lyrics</label>
+          <p (click)="addSection(categoryType.MAIN)">Add Chorus</p>
+          <p (click)="addSection(categoryType.PREMAIN)">Add Bridge</p>
+          <p (click)="addSection(categoryType.SECTION)">Add Verse</p>
+        </div>
+        <div class="lyrics" id="lyrics" *ngIf="parts.length">
+          <div class="lyric-row" *ngFor="let part of parts; let i = index">
+            <textarea [ngClass]="songService.getCategoryClass(part.category)"
+                      [value]="part.content" formControlName="lyric-{{i + 1}}"></textarea>
+            <mat-icon (click)="duplicateSection(i)">control_point</mat-icon>
+            <mat-icon (click)="removeSection(i)">close</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button *ngIf="type === songRouteType.UPDATE" (click)="updateSong()">Update</button>
+    <button *ngIf="type === songRouteType.CREATE" (click)="createSong()">Create</button>
+  </form>
+</div>

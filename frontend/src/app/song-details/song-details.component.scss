@@ -1,0 +1,151 @@
+div {
+  height: 100%;
+
+  a {
+    padding: 1em;
+  }
+
+  form {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+
+
+    .preview-lyrics-section {
+      display: flex;
+      flex-direction: row;
+
+      label {
+        padding: 1em;
+      }
+
+      input {
+        margin: 0 1em;
+        padding: 0 1em;
+        height: 5%;
+      }
+
+      .preview-section {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+        iframe {
+          width: 96%;
+          padding: 0 1em;
+          height: 30em;
+        }
+      }
+
+      .lyrics-section {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+        .lyrics-options {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          height: 3em;
+
+          label {
+            padding: 1em;
+          }
+
+          p {
+            margin: 0.5em;
+            padding: 0.5em;
+            cursor: pointer;
+            border-radius: 5px;
+
+            &:nth-child(2) {
+              margin-left: auto;
+              color: #e77f7f;
+              transition: color ease-in 1ms;
+              transition: background-color ease-in 1ms;
+            }
+
+            &:nth-child(3) {
+              color: #86c986;
+              transition: color ease-in 1ms;
+              transition: background-color ease-in 1ms;
+            }
+
+            &:nth-child(4) {
+              color: #7a7ace;
+              transition: color ease-in 1ms;
+              transition: background-color ease-in 1ms;
+            }
+
+            &:nth-child(2):hover {
+              margin-left: auto;
+              color: whitesmoke;
+              background-color: #e77f7f;
+              transition: color ease-in 1ms;
+              transition: background-color ease-in 1ms;
+            }
+
+            &:nth-child(3):hover {
+              color: whitesmoke;
+              background-color: #86c986;
+              transition: color ease-in 1ms;
+              transition: background-color ease-in 1ms;
+            }
+
+            &:nth-child(4):hover {
+              color: whitesmoke;
+              background-color: #7a7ace;
+              transition: color ease-in 1ms;
+              transition: background-color ease-in 1ms;
+            }
+          }
+        }
+
+        .lyrics {
+          display: flex;
+          flex-direction: column;
+
+          .lyric-row {
+            display: flex;
+            flex-direction: row;
+            height: 10em;
+
+            textarea {
+              resize: none;
+              padding: 1em;
+              margin: 0.5em 0 0;
+              border: 1px solid lightgray;
+              border-radius: 5px;
+              width: 90%;
+            }
+
+            .mat-icon {
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+            }
+
+            .main {
+              background-color: #e77f7f;
+            }
+
+            .premain {
+              background-color: #86c986;
+            }
+
+            .section {
+              background-color: #7a7ace;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      height: 10%;
+      cursor: pointer;
+    }
+  }
+}
