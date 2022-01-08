@@ -8,7 +8,8 @@ const cors = require("cors")
 dotenv.config({path: __dirname + '/environment.env'});
 
 const HttpError = require("./models/http-error");
-import {router as songRoutes} from "./routes/song-routes"
+import {userRouter} from "./routes/user-routes";
+import {songRouter} from "./routes/song-routes";
 
 app.use(express.json());
 app.use(cors());
@@ -23,7 +24,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("/api/", songRoutes);
+app.use("/api/user/", userRouter);
+app.use("/api/song/", songRouter);
 
 app.use((req, res, next) => {
     throw new HttpError("Could not find route", 404);

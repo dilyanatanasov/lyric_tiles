@@ -43,7 +43,7 @@ export class SongLyricsListComponent implements OnInit {
   private getAllSongs(title?: string) {
     let body = {};
     if (title) body = {"title": this.formGroup?.value.title}
-    this.http.get("http://localhost:8000/api/", {
+    this.http.get("http://localhost:8000/api/song/", {
       headers: body
     })
       .subscribe((songs: any) => {

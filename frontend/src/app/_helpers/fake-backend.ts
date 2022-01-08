@@ -11,7 +11,7 @@ import {Observable, of, throwError} from "rxjs";
 import {delay, mergeMap, materialize, dematerialize} from "rxjs/operators";
 import {User} from "../_models/User";
 
-const users: User[] = [{id: 1, username: "test", password: "test", firstName: "Test", lastName: "User"}];
+const users: User[] = [{id: 1, username: "dna", password: "P@$$w0rd1", firstName: "Test", lastName: "User"}];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -22,9 +22,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     // wrap in delayed observable to simulate server api call
     return of(null)
       .pipe(mergeMap(handleRoute))
-      .pipe(materialize()) // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
-      .pipe(delay(500))
-      .pipe(dematerialize());
 
     function handleRoute() {
       switch (true) {
@@ -76,8 +73,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 
     function isLoggedIn() {
-      return headers.get("Authorization") === `Basic ${window.btoa("test:test")}`;
+      return headers.get("Authorization") === `Basic ${window.btoa("dna:P@$$w0rd1")}`;
     }
+
+    return of(null)
+      // @ts-ignore
+      .pipe(mergeMap(handleRoute))
   }
 }
 
