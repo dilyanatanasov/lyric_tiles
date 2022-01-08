@@ -174,9 +174,19 @@ div {
       }
     }
 
-    button {
+    .update-button, .create-button {
       height: 10%;
       cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #7a7ace;
+      color: whitesmoke;
+      transition: background-color ease-in 1s;
+
+      &:hover {
+        background-color: #6565b2;
+        transition: background-color ease-in 1s;
+      }
     }
   }
 }
